@@ -1,0 +1,38 @@
+
+# system configuration
+RAM = "3000"          # max memory for each VM
+TZ = "US/Pacific"     # timezone, like US/Pacific, US/Eastern, UTC, Europe/Warsaw, etc.
+IP = "10.10.10.1"    # private IP address
+
+# Provisioning script
+provision_script = <<SCRIPT
+#!/bin/bash
+
+/vagrant/scripts/timezone.sh
+/vagrant/scripts/tools.sh
+/vagrant/scripts/java7.sh
+/vagrant/scripts/cassandra.sh
+
+echo "Vagrant provisioning complete"
+
+SCRIPT
+
+
+# Configure VM server
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.define :cassandra do |x|
+    x.vm.box = "hashicorp/precise64"
+    x.vm.provider "vmware_fusion" do |v|
+      v.vmx["memsize"]  = RAM
+    end
+    x.vm.provider :virtualbox do |v|
+      v.name = "cassandra"
+      v.customize ["modifyvm", :id, "--memory", RAM]
+    end
+    x.vm.network :private_network, ip: IP
+    x.vm.hostname = "cassandra"
+    x.vm.provision :shell, :inline => provision_script
+  end
+end
