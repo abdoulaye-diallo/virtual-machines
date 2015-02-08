@@ -1,4 +1,3 @@
-
 # system configuration
 RAM = "3000"          # max memory for each VM
 TZ = "US/Pacific"     # timezone, like US/Pacific, US/Eastern, UTC, Europe/Warsaw, etc.
@@ -14,7 +13,6 @@ provision_script = <<SCRIPT
 /vagrant/scripts/cassandra.sh
 
 echo "Vagrant provisioning complete"
-
 SCRIPT
 
 
