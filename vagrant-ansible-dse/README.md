@@ -15,7 +15,7 @@ Click on the 'Virtualbox' link above to download the .dmg file and double-click 
 ### Install Vagrant
 Click ont the 'Vagrant' link above to download the .dmg file and double-click on it to follow the installation instructions.
 ### Install Ansible
-On your Mac terminal, type:
+On your osx terminal, type:
  
 ```$ brew update; brew install ansible```
 
@@ -27,11 +27,24 @@ Clone the project:
 
 ###DSE-1
 
+This will build a single node cassandra DSE cluster, with no OpsCenter.
+
+```node: cassandra01, ip: 192.168.1.11, user: vagrant```
+
+Run the below command to provision this cluster.
+
 ```cd DSE-1; vagrant up```
 
 ###DSE-3
 
+This will build a two node cassandra DSE cluster along with one OpsCenter node.
+
+```node: cassandra01, ip: 192.168.1.11, user: vagrant```
+```node: cassandra02, ip: 192.168.1.22, user: vagrant```
+```node: opscenter, ip: 192.168.1.10, user: vagrant```
+
+Run the below command to provision this cluster.
+
 ```cd DSE-3; vagrant up```
 
 This will take saveral minutes for the first time to build your cluster of choice.
-
