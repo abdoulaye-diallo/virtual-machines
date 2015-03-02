@@ -11,14 +11,13 @@ The projects under this repository enable easy provisioning of cassandra cluster
 if you don't have either of the tools above, you'll need to install it.
 
 ### Install Virtualbox
-```Click on the 'Virtualbox' link above to download the .dmg file and double-click on it to follow  the installation instructions```
+Click on the 'Virtualbox' link above to download the .dmg file and double-click on it to follow  the installation instructions.
 ### Install Vagrant
-```Click ont the 'Vagrant' link above to download the .dmg file and double-click on it to follow the installation instructions.```
+Click ont the 'Vagrant' link above to download the .dmg file and double-click on it to follow the installation instructions.
 ### Install Ansible
 On your Mac terminal, type:
  
-```
-$ brew update; brew install ansible```
+```$ brew update; brew install ansible```
 
 ##Provisioning different Clusters
 
